@@ -741,118 +741,6 @@ body::before {
 }
 
 
-/* === THE REEL · video grid === */
-.reel-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-@media (max-width: 900px) {
-  .reel-grid { grid-template-columns: 1fr; gap: 32px; }
-}
-
-.trailer {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: var(--black-2);
-  border: 1px solid var(--rule);
-  cursor: pointer;
-  transition: border-color 0.4s ease, transform 0.4s ease;
-}
-
-.trailer:hover {
-  border-color: var(--gold);
-  transform: translateY(-2px);
-}
-
-.trailer-thumb {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.8s cubic-bezier(.2,.7,.2,1), filter 0.4s ease;
-  filter: brightness(0.82) contrast(1.04);
-}
-
-.trailer:hover .trailer-thumb {
-  filter: brightness(0.96) contrast(1.06);
-  transform: scale(1.04);
-}
-
-.trailer-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(6,6,6,0.65) 100%);
-  pointer-events: none;
-}
-
-.trailer-play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  border: 1.5px solid var(--gold);
-  background: rgba(6,6,6,0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.4s cubic-bezier(.2,.7,.2,1);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  pointer-events: none;
-}
-
-.trailer-play::before {
-  content: '';
-  border-left: 18px solid var(--gold);
-  border-top: 11px solid transparent;
-  border-bottom: 11px solid transparent;
-  margin-left: 5px;
-}
-
-.trailer:hover .trailer-play {
-  background: rgba(184, 147, 90, 0.18);
-  transform: translate(-50%, -50%) scale(1.1);
-  border-color: var(--gold-bright);
-  box-shadow: 0 0 40px rgba(184, 147, 90, 0.25);
-}
-
-.trailer:hover .trailer-play::before {
-  border-left-color: var(--gold-bright);
-}
-
-.trailer-label {
-  position: absolute;
-  bottom: 18px;
-  left: 20px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  color: var(--gold);
-  text-transform: uppercase;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.trailer iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.trailer.playing { cursor: default; }
-.trailer.playing:hover { transform: none; }
-
 /* === RESPONSIVE ADJUSTMENTS === */
 @media (max-width: 600px) {
   .scene { padding: 88px 0; }
@@ -1014,53 +902,12 @@ body::before {
 </section>
 
 <!-- ============================================================
-     IV. THE REEL  ·  trailers from active development
+     IV. THE PROCESS
      ============================================================ -->
 <section class="scene">
   <div class="container">
     <div class="scene-marker reveal">
       <span class="scene-num">IV.</span>
-      <span>The Reel</span>
-    </div>
-
-    <h2 class="section-title reveal">
-      Watch the <em>work</em>.
-    </h2>
-
-    <p class="reveal" style="font-size: clamp(15px, 1.25vw, 18px); line-height: 1.8; color: var(--cream-2); max-width: 720px; margin-bottom: 64px; font-weight: 300;">
-      Trailers from original projects currently in development under the Vizzion Pictures banner. Each is a glimpse of what we build for the IP holders who choose to work with us.
-    </p>
-
-    <div class="reel-grid reveal">
-      <div class="trailer" onclick="loadTrailer(this, 'j8VGns1JDhw')">
-        <img class="trailer-thumb" src="https://img.youtube.com/vi/j8VGns1JDhw/maxresdefault.jpg" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/j8VGns1JDhw/hqdefault.jpg';" alt="" loading="lazy" />
-        <div class="trailer-overlay"></div>
-        <div class="trailer-play"></div>
-        <div class="trailer-label">01 &nbsp;·&nbsp; Trailer</div>
-      </div>
-      <div class="trailer" onclick="loadTrailer(this, 'w3RMkERIwZA')">
-        <img class="trailer-thumb" src="https://img.youtube.com/vi/w3RMkERIwZA/maxresdefault.jpg" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/w3RMkERIwZA/hqdefault.jpg';" alt="" loading="lazy" />
-        <div class="trailer-overlay"></div>
-        <div class="trailer-play"></div>
-        <div class="trailer-label">02 &nbsp;·&nbsp; Trailer</div>
-      </div>
-      <div class="trailer" onclick="loadTrailer(this, 'LWrNc2hAj3A')">
-        <img class="trailer-thumb" src="https://img.youtube.com/vi/LWrNc2hAj3A/maxresdefault.jpg" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/LWrNc2hAj3A/hqdefault.jpg';" alt="" loading="lazy" />
-        <div class="trailer-overlay"></div>
-        <div class="trailer-play"></div>
-        <div class="trailer-label">03 &nbsp;·&nbsp; Trailer</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     V. THE PROCESS
-     ============================================================ -->
-<section class="scene">
-  <div class="container">
-    <div class="scene-marker reveal">
-      <span class="scene-num">V.</span>
       <span>The Process</span>
     </div>
 
@@ -1119,12 +966,12 @@ body::before {
 </div>
 
 <!-- ============================================================
-     VI. THE CRAFT
+     V. THE CRAFT
      ============================================================ -->
 <section class="scene">
   <div class="container">
     <div class="scene-marker reveal">
-      <span class="scene-num">VI.</span>
+      <span class="scene-num">V.</span>
       <span>The Craft</span>
     </div>
 
@@ -1157,12 +1004,12 @@ body::before {
 </section>
 
 <!-- ============================================================
-     VII. THE EDGE
+     VI. THE EDGE
      ============================================================ -->
 <section class="scene">
   <div class="container">
     <div class="scene-marker reveal">
-      <span class="scene-num">VII.</span>
+      <span class="scene-num">VI.</span>
       <span>The Edge</span>
     </div>
 
@@ -1216,12 +1063,6 @@ body::before {
 </footer>
 
 <script>
-  function loadTrailer(el, id) {
-    if (el.classList.contains('playing')) return;
-    el.classList.add('playing');
-    el.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`;
-  }
-
   // Scroll-triggered reveal using IntersectionObserver
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
